@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="utf-8" />
+	<title>Custom CMS</title>
+	<script src="jsoneditor.js"></script>
+	<link rel="stylesheet" type="text/css" href="json-cms.css">
+</head>
+
+<body>
+	<header>
+		<h1>JSON CMS</h1>
+	</header>
+
+	<button id='submit'>Submit</button>
+	
+	<span id='valid_indicator'></span>
+
+	<div id='editor_holder'></div>
+
+	<script>
+		var editor = new JSONEditor(document.getElementById('editor_holder'), {
+
+			ajax: true,
+
+			schema: {
+				type: "array",
+				title: "Content",
+				format: "tabs",
+				items: {
+					title: "Node",
+					headerTemplate: "{{i}} - {{self.id}}",
+					oneOf: [
+						{
+							$ref: "text.json",
+							title: "Text"
+						},
+						{
+							$ref: "RechartsBarChart.json",
+							title: "RechartsBarChart"
+						}
+					]
+				}
+			},
+
+
+			no_additional_properties: true,
+
+			required_by_default: false
+		});
+
+		document.getElementById('submit').addEventListener('click', function () {
+			console.log(editor.getValue());
+		});
+
+
+
+		editor.on('change', function () {
+			var errors = editor.validate();
+
+			var indicator = document.getElementById('valid_indicator');
+
+			if (errors.length) {
+				indicator.style.color = 'red';
+				indicator.textContent = "not valid";
+			}
+			else {
+				indicator.style.color = 'green';
+				indicator.textContent = "valid";
+			}
+		});
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,69 @@
+{
+	"title": "Chart",
+	"type": "object",
+	"id": "chart",
+	"properties": {
+		"id": {
+			"type": "string",
+			"description": "Identifier",
+			"minLength": 0
+		},
+		"title": {
+			"type": "string",
+			"description": "Chart Title",
+			"minLength": 0
+		},
+		"subtitle": {
+			"type": "string",
+			"description": "Chart Subtitle",
+			"minLength": 0
+		},
+		"caption": {
+			"type": "string",
+			"description": "Chart Caption",
+			"minLength": 0
+		},
+		"src": {
+			"type": "string"
+		},
+		"layout": {
+			"type": "string",
+			"enum": [
+				"horizontal",
+				"vertical"
+			]
+		},
+		"x_label": {
+			"type": "string",
+			"description": "X Axis Label",
+			"minLength": 0
+		},
+		"y_label": {
+			"type": "string",
+			"description": "Y Axis Label",
+			"minLength": 0
+		},
+		"bin": {
+			"type": "string",
+			"description": "Metric"
+		},
+		"value": {
+			"type": "string",
+			"description": "Values"
+		},
+		"group": {
+			"type": "string",
+			"description": "Group"
+		},
+		"legend_text": {
+			"type": "string",
+			"description": "Legend Text"
+		},
+		"colors": {
+			"type": "array",
+			"items": {
+				"type": "string"
+			}
+		}
+	}
+}

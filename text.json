@@ -1,0 +1,24 @@
+{
+	"title": "Text",
+	"type": "object",
+	"id": "text",
+	"properties": {
+		"id": {
+			"type": "string",
+			"description": "Identifier",
+			"minLength": 0
+		},
+		"title": {
+			"type": "string",
+			"description": "Title",
+			"minLength": 0
+		},
+		"content": {
+			"type": "string",
+			"format": "html",
+			"options": {
+				"wysiwyg": true
+			}
+		}
+	}
+}
